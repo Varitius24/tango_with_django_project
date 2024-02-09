@@ -5,8 +5,6 @@ import django
 django.setup()
 from rango.models import Category, Page
 
-# For an explanation of what is going on here, please refer to the TwD book.
-
 def populate():
     python_pages = [
         {'title': 'Official Python Tutorial',
@@ -51,7 +49,7 @@ def populate():
         for p in Page.objects.filter(category=c):
             print(f'- {c}: {p}')
 
-def add_page(cat, title, url, views=0):
+def add_page(cat, title, url, views=1):
     p = Page.objects.get_or_create(category=cat, title=title)[0]
     p.url=url
     p.views=views
